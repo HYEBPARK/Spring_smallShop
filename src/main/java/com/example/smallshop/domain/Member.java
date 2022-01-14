@@ -1,35 +1,24 @@
 package com.example.smallshop.domain;
 
+
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Member {
 
     @Id
-    @GeneratedValue
-    @Column(name = "MEMBER_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
-
-    @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<Order>();
-
-    public List<Order> getOrders() {
-        return orders;
-    }
+    @Column
+    private String email;
+    @Column
+    private String password;
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -40,28 +29,20 @@ public class Member {
         this.name = name;
     }
 
-
-    public String getCity() {
-        return city;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getStreet() {
-        return street;
+    public String getPassword() {
+        return password;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
 }
