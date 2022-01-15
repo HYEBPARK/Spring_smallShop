@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>create Item</title>
+</head>
+<body>
+<div class="container">
+    <form action="item" method="post">
+        <div class="form-group">
+            <label for="item_name">아이템 이름</label>
+            <input type="text" id="item_name" name="item_name" placeholder="아이템 이름을 입력해주세요">
+            <label for="item_price">아이템 가격</label>
+            <input type="text" id="item_price" name="item_price" placeholder="가격을 입력해주세요">
+
+        </div>
+        <br>
+        <button type="submit">등록</button>
+    </form>
+</div>
+
+</body>
+</html>
