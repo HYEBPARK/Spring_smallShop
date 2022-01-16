@@ -1,6 +1,7 @@
 package com.example.smallshop.repository;
 
 import com.example.smallshop.domain.Member;
+import com.example.smallshop.domain.MemberForm;
 import com.example.smallshop.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,20 +24,20 @@ public class MemberRepositoryTest {
     @Autowired
     MemberService memberService;
 
-    @Test
-    public void 멤버_등록(){
-
-        Member member = new Member();
-        member.setName("hyeb");
-        member.setEmail("hyeb@na");
-        member.setPassword("123123");
-        memberRepository.save(member);
-
-        List<Member> memberList = memberRepository.findAll();
-
-        Member member1 = memberList.get(0);
-        assertThat(member.getName()).isEqualTo(member1.getName());
-    }
+//    @Test
+//    public void 멤버_등록(){
+//
+//        MemberForm memberForm = new MemberForm();
+//        memberForm.setName("hYEB");
+//        memberForm.setEmail("hyeb@.sdfjl");
+//        memberForm.setPassword("qwerqwer");
+//        Member member = Member.createMember(memberForm,)
+//
+//        List<Member> memberList = memberRepository.findAll();
+//
+//        Member member1 = memberList.get(0);
+//        assertThat(member.getName()).isEqualTo(member1.getName());
+//    }
 
     @Test
     public void 멤버_불러오기(){
@@ -46,8 +47,11 @@ public class MemberRepositoryTest {
 
     @Test
     public void 멤버_아이디로찾기(){
-        Long id = 2L;
-        assertThat(id).isEqualTo(memberService.findById(id));
+        Long id = 3L;
+        Optional<Member> member = memberRepository.findById(id);
+        if(member == null) System.out.println("없는 아이디 입니다. ");
+        else System.out.println(member.get().getName());
     }
+
 
 }
